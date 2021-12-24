@@ -50,11 +50,15 @@ export default function Home() {
       setState((prev) => ({ ...prev, message: error.message }))
 
     }
+  }
 
-
-
-
-
+  const handlePickWinner = async () => {
+    setState(prev => ({ ...prev, message: "please wait..." }))
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const winner = await Lottery.methods.pickWinner().send({
+      from: accounts[0]
+    });
+    setState(prev => ({ ...prev, message: 'Payment sent to winner' }))
   }
 
   useEffect(() => {
@@ -72,7 +76,7 @@ export default function Home() {
       <p>{state.message}</p>
       <hr /><br /><hr />
       <p>The manager of the lottery decentralized app is {state.manager}</p>
-      <button>Pick Winner</button>
+      <button onClick={handlePickWinner}>Pick Winner</button>
     </div>
   )
 }
