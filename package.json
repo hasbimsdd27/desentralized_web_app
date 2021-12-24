@@ -2,7 +2,7 @@
   "name": "decentralized_lottery_app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npx env-cmd -f .env.local next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

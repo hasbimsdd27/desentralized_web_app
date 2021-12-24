@@ -1,7 +1,7 @@
-const web3 = require('web3')
-const contractFile = require('./compile')
-
-const address = '0xB3A1b37aF2B8Ea9543831e4aac98e64d93382468';
+// const Web3 = require('web3')
+// const contractFile = require('./contractFile.json')
+import Web3 from './web3'
+import contractFile from './contractFile.json'
+const address = '0x898a0B7ffBe7872D99a5342DD438e50F860E6471';
 const abi = contractFile.abi
-
-module.exports = new web3.eth.Contract(abi, address)
+export default new Web3.eth.Contract(abi, address)

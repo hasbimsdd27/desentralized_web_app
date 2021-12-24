@@ -1,9 +1,9 @@
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const Web3 = require('web3')
 
-const Compile = require('./compile')
-const bytecode = Compile.evm.bytecode.object;
-const abi = Compile.abi;
+const contractFile = require('./contractFile.json')
+const bytecode = contractFile.evm.bytecode.object;
+const abi = contractFile.abi;
 
 const provider = new HDWalletProvider(
     process.env.SECRET_PASSPHRASE,
